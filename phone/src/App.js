@@ -12,6 +12,7 @@ class App extends Component {
     this.setState({news:newnews});
   }
   chooserightcomponent = ()=>{
+    //checking whether to display the latest news or filtered news
     if((this.state.news).length==0)
     {
        return (

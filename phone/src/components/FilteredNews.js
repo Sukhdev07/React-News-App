@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import '../components/NewsFeed.css';
 
 function ImageCall(props){
+    //checking whether image property is there in object or not and displaying accordingly
     if(props.isPresent.image!=="None")
     {
         return (
@@ -30,9 +31,11 @@ function ImageCall(props){
 
 class FilteredNews extends Component{
     deleteHandler=(id)=>{
+        //handing the delete function of a card if user click on cross icon
         console.log(id);
         let list=this.props.news;
         let index=-1;
+        //getting the index
         list.forEach(function(subscriber,ind)
         {
             //console.log(ind);
@@ -43,13 +46,15 @@ class FilteredNews extends Component{
             }
         },this);
         //console.log(index);
+        //removing the element
         list.splice(index,1);
+        //updating the state
         this.props.onclickHandler(list);
     }
 
     render(){
         return(
-            
+            //basic design of each card and mapping each element of array into it
             <div style={{overflow:''}}>
                 {
                     this.props.news.map((value)=>{

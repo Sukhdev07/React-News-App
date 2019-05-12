@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
-import NewsFeed from './NewsFeed';
-import '../components/FormFilter.css'
+import '../components/FormFilter.css';
 class FormFilter extends Component{
     state={
         filteredNews:[]
     }
     submitHandler=(e)=>{
         e.preventDefault();
+        //getting all the inputs from the form
         const lang=e.target.language.value;
         const count=e.target.country.value;
         const start=e.target.startdate.value;
         const end=e.target.enddate.value;
         console.log(lang,count,typeof(start),typeof(end));
+        //checking if the user has given any input instead of the country
         if(lang!=='Null'|| start!=='' || end !== '')
         {
             alert('Filtering of news is implemented by Country only');
@@ -20,6 +21,7 @@ class FormFilter extends Component{
         this.filterNews(count);
     }
     filterNews=(count)=>{
+        //getting the filtered news according to the country entered by user
         var xhr=new XMLHttpRequest();
         xhr.open('GET','https://cors-anywhere.herokuapp.com/api.currentsapi.services/v1/search?country='+count);
         xhr.setRequestHeader('Authorization', 'NsusOwUlTxj-ad-59hrqCnRe_hu4ZD42ucYNqFlJ71kNx7Ca' );
@@ -29,12 +31,14 @@ class FormFilter extends Component{
                 var res=JSON.parse(xhr.responseText);
                 console.log(res.news);
                 this.setState({filterNews:res.news})
+                //sending the response to parent app.js
                 this.props.onclickHandler(res.news);
             }
         }
     }
     render(){
         return(
+            //ui for the form 
                 <div className="newsform">
                 <form  onSubmit={this.submitHandler.bind(this)}>
                 <span id="top">Filter News</span>
