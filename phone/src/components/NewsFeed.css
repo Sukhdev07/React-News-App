@@ -1,0 +1,26 @@
+.feedContainer{
+    background-color: white;
+    margin-right: 5%;
+    margin-bottom:2%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding:15px;
+    margin-top: 25px;
+    width:100%;
+}
+
+.publisher{
+    text-transform: capitalize;
+    color:#878282;
+    text-align: left;
+}
+
+.dated{
+    text-transform: capitalize;
+    color:#878282;
+    text-align: right;
+}
+.imgNData{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
