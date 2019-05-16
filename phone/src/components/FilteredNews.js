@@ -51,8 +51,9 @@ class FilteredNews extends Component{
         //updating the state
         this.props.onclickHandler(list);
     }
-
+   
     render(){
+      
         return(
             //basic design of each card and mapping each element of array into it
             <div style={{overflow:''}}>
